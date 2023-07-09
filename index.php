@@ -51,8 +51,8 @@
     <div class="container flex items-center justify-between mx-auto">
       <h1 class="text-2xl font-bold">Outdoors</h1>
       <div>
-        <button class="border border-black bg-transparent  px-4 py-2 rounded-full mr-2">Criar Conta</button>
-        <button class="px-4 py-2 rounded-md">Entrar</button>
+        <button onclick="location.href='view/signup.php'" class="border border-black bg-transparent  px-4 py-2 rounded-full mr-2">Criar Conta</button>
+        <button onclick="location.href='view/login.php'" class="px-4 py-2 rounded-md">Entrar</button>
       </div>
     </div>
   </header>
