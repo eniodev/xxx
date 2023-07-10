@@ -1,4 +1,49 @@
-<?php include_once "../dbconfig/dbconfig.php" ?>
+<?php
+// Include necessary files and dependencies
+include_once '../controllers/user_controller.php';
+include_once '../repositories/user_repository.php';
+include_once '../controllers/client_controller.php';
+include_once '../repositories/client_repository.php';
+include_once '../dbconfig/dbconfig.php';
+
+// Instantiate UserController
+$user_repository = new UserRepository($DB_con);
+$user_service = new UserService($user_repository);
+$user_controller = new UserController($user_service);
+
+//Instance ClientController
+$client_repository = new ClientRepository($DB_con);
+$client_service = new ClientService($client_repository);
+$client_controller = new ClientController($client_service);
+
+// Check if the form was submitted
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Get the form data
+    $name = $_POST['name'];
+    $type = $_POST['client'];    
+    $activity = $_POST['activity'];
+    $commune = $_POST['commune'];
+    $country = $_POST['country'];
+    $address = $_POST['address'];
+    $phone = $_POST['phone'];
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+    // Get other form fields
+
+    // Call the appropriate method in the controller to add the manager
+    $user = new User($email, $password, "C");        
+    $user_id = $user_controller->createUser($user); 
+    $client = new Client($name, $type, $activity, $commune, $country, $address, $phone, $user_id);
+    $client_controller->createClient($client);
+
+    
+
+    
+}
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,11 +68,20 @@
     </div>
     <div class="flex-1 bg-white flex flex-col justify-center items-center px-6 py-8">
       <h1 class="text-3xl font-bold mb-6">Outdoors</h1>
-      <form class="w-full max-w-sm overflow-auto">
+      <form  action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="POST" class="w-full max-w-sm overflow-auto">
 
         <div class="mb-4">
             <label for="name" class="block text-gray-700 text-sm font-bold mb-2">Nome</label>
             <input type="text" id="name" name="name" placeholder="Digite seu nome" class="w-full border border-gray-300 rounded py-2 px-4">
+        </div>
+        <div class="mb-4">
+            <label for="client" class="block text-gray-700 text-sm font-bold mb-2">Estatuto</label>
+            <select id="client" name="client" class="w-full border border-gray-300 rounded py-2 px-4">
+            <option value="">Selecione o tipo de entidade</option>
+            <!-- Opções de entidades -->
+            <option value="C">Empresa</option>
+            <option value="S">Singular</option>
+            </select>
         </div>
         <div class="mb-4">
             <label for="activity" class="block text-gray-700 text-sm font-bold mb-2">Atividade</label>
@@ -79,7 +133,7 @@
         </div>
         <div class="mb-4">
           <label for="password" class="block text-gray-700 text-sm font-bold mb-2">Confirmar senha</label>
-          <input type="password" id="password" name="password" placeholder="Digite novamente sua senha" class="w-full border border-gray-300 rounded py-2 px-4">
+          <input type="password" id="passwordx" name="passwordx" placeholder="Digite novamente sua senha" class="w-full border border-gray-300 rounded py-2 px-4">
         </div>
         <div class="mb-4">
           <button type="submit" class="bg-gray-900 text-white font-bold py-2 px-4 rounded w-full">Criar conta</button>

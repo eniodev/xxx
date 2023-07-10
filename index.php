@@ -9,50 +9,20 @@
   rel="stylesheet"
   href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/tw-elements.min.css" />
 <script src="https://cdn.tailwindcss.com/3.3.0"></script>
-<script>
-  tailwind.config = {
-    darkMode: "class",
-    theme: {
-      fontFamily: {
-        sans: ["Roboto", "sans-serif"],
-        body: ["Roboto", "sans-serif"],
-        mono: ["ui-monospace", "monospace"],
-      },
-    },
-    corePlugins: {
-      preflight: false,
-    },
-  };
-</script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="./content/bootstrap/css/index.css" />
   <title>outdoors, inc.</title>
-  <style>
-  @keyframes pulse {
-    0% {
-      box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.7);
-    }
-    70% {
-      box-shadow: 0 0 0 10px rgba(59, 130, 246, 0);
-    }
-    100% {
-      box-shadow: 0 0 0 0 rgba(59, 130, 246, 0);
-    }
-  }
-
-  .animate-pulse-border {
-    animation: pulse 2s infinite;
-  }
-  </style>
 </head>
+
 <body>
   <header class="py-4">
     <div class="container flex items-center justify-between mx-auto">
       <h1 class="text-2xl font-bold">Outdoors</h1>
       <div>
-        <button onclick="location.href='view/signup.php'" class="border border-black bg-transparent  px-4 py-2 rounded-full mr-2">Criar Conta</button>
-        <button onclick="location.href='view/login.php'" class="px-4 py-2 rounded-md">Entrar</button>
+        <button onclick="location.href='views/signup.php'" class="border border-black bg-transparent  px-4 py-2 rounded-full mr-2">Criar Conta</button>
+        <button onclick="location.href='views/login.php'" class="px-4 py-2 rounded-md">Entrar</button>
       </div>
     </div>
   </header>
@@ -63,8 +33,6 @@
   data-te-carousel-init
   data-te-carousel-slide>
   <!--Carousel items-->
-
-
   <div
     class="relative w-full overflow-hidden after:clear-both after:block after:content-[''] ">
     <!--First item-->
@@ -104,9 +72,7 @@
     <a href="#cards" class="mt-6 inline-block bg-gray-900 hover:bg-gray-600 text-white font-bold py-2 px-6 rounded">Ver Opções</a>
   </div>
 
-  <!-- Status -->
-
-    
+  <!-- Status -->  
 <div class="flex w-full justify-center py-10">
   <div class="max-w-lg flex grid-cols-4 gap-6">
 <div class="flex items-center">
