@@ -1,6 +1,5 @@
 <?php
 session_start();
-
 // Verificar se a variável de sessão 'user_id' está definida
 if (!isset($_SESSION['user'])) {
     // Redirecionar para a página de login ou outra página adequada
@@ -15,6 +14,13 @@ else {
     }
 }
 
+if (isset($_POST['logout'])) {
+    session_start();
+    $_SESSION = array();
+    session_destroy();
+    header("Location: ../index.php");
+    exit;
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -33,9 +39,11 @@ else {
   <header class="py-4">
     <div class="container flex items-center justify-between mx-auto">
       <h1 class="text-2xl font-bold">Outdoors</h1>
-      <div>
+      <div class="flex flex-row">
         <button onclick="location.href='views/signup.php'" class="border border-black bg-transparent  px-4 py-2 rounded-full mr-2">Editar Perfil</button>
-        <button onclick="location.href='views/login.php'" class="px-4 py-2 rounded-md">Sair</button>
+        <form  action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="POST">
+        <button type="submit" name="logout" class="px-4 py-2 rounded-md">Sair</button>
+        </form>
       </div>
     </div>
   </header>
