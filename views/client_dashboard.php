@@ -7,9 +7,7 @@ if (!isset($_SESSION['user'])) {
     exit;
 }
 else {
-    $user_info = implode(', ', $_SESSION['user']);
-    $user_type = substr($user_info, -1);
-    if($user_type !== "C") {
+    if($_SESSION['user']['role'] !== "C") {
         header('Location: login.php');
     }
 }

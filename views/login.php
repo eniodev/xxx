@@ -22,15 +22,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $authenticated = $user_controller->authenticateUser($email, $password);
 
     if ($authenticated) {
-        $user_info = implode(', ', $authenticated);
-        $accountId = substr($user_info, 0,1);
-        $user_type = substr($user_info, -1);
-        $_SESSION['user'] = $authenticated;
+       $_SESSION['user'] = $authenticated;
+        echo $_SESSION['user']['id']; 
 
-        $user = $user_controller->getUserByAccId($accountId);
-        $SESSION['entity'] = implode(', ', $user);
+        $user = $user_controller->getUserByAccId($_SESSION['user']['id']);
+        $SESSION['entity'] = $user;
 
-        if ($user_type === "C"){
+        if ($_SESSION['user']['role']=== "C") {
           header('Location: client_dashboard.php');
         }
         else {
