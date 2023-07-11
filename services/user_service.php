@@ -12,7 +12,7 @@ $this->user_repository = $user_repository;
 public function createUser(User $user) {
 // Realizar validações ou lógica de negócio, se necessário
 
-return $this->user_repository->createUser($user);
+    return $this->user_repository->createUser($user);
 }
 
 public function authenticateUser($email, $password) {

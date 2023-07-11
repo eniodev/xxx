@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,11 +22,20 @@
     <div class="container flex items-center justify-between mx-auto">
       <h1 class="text-2xl font-bold">Outdoors</h1>
       <div>
-        <button onclick="location.href='views/signup.php'" class="border border-black bg-transparent  px-4 py-2 rounded-full mr-2">Criar Conta</button>
-        <button onclick="location.href='views/login.php'" class="px-4 py-2 rounded-md">Entrar</button>
-      </div>
+      <?php if (!isset($_SESSION['user'])): ?>
+      <!-- Sessão não iniciada: mostrar os textos "Criar conta" e "Entrar" -->
+      <button onclick="location.href='views/signup.php'" class="border border-black bg-transparent  px-4 py-2 rounded-full mr-2">Criar Conta</button>
+      <button onclick="location.href='views/login.php'" class="px-4 py-2 rounded-md">Entrar</button>      
+      
+      <!-- Outros elementos do menu para usuários logados -->
+      <?php else: ?>
+      <!-- Sessão iniciada: exibir o link para o perfil -->
+      <button onclick="location.href='views/client_dashboard.php'" class="border border-black bg-transparent  px-4 py-2 rounded-full mr-2">Minha Conta</button>
+      <?php endif; ?>
+    </div>
     </div>
   </header>
+
 
   <div
   id="carouselExampleSlidesOnly"
