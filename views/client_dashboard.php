@@ -8,7 +8,7 @@ if (!isset($_SESSION['user'])) {
 }
 else {
     if($_SESSION['user']['role'] !== "C") {
-        header('Location: login.php');
+        header('Location: admin_dashboard.php');
     }
 }
 

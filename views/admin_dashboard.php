@@ -9,9 +9,10 @@ if (!isset($_SESSION['user'])) {
 }
 else {
     if($_SESSION['user']['role'] == "C") {
-        header('Location: login.php');
+        header('Location: client_dashboard.php');
     }
 }
+
 if (isset($_POST['logout'])) {
     session_start();
     $_SESSION = array();
@@ -19,6 +20,7 @@ if (isset($_POST['logout'])) {
     header("Location: ../index.php");
     exit;
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
