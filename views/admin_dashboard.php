@@ -59,6 +59,12 @@ if (isset($_POST['logout'])) {
             Pedidos
           </a>
         </li>
+        <li class="-mb-px mr-1">
+          <a href="#" class="bg-white inline-block py-2 px-4 font-semibold tab-link"
+            data-tab="meus-outdoors">
+            Outdoors
+          </a>
+        </li>
         <li class="mr-1">
           <a href="#" class="bg-white inline-block py-2 px-4 font-semibold tab-link" data-tab="perfil">
             Clientes
@@ -84,6 +90,14 @@ if (isset($_POST['logout'])) {
     <div class="tab-content hidden" id="perfil">
       <div class="bg-white rounded-lg shadow p-4">
         <h2 class="text-lg font-semibold mb-4">Clientes</h2>
+        <!-- Coloque aqui a estrutura do conteúdo do perfil -->
+      </div>
+    </div>
+
+    <!-- Seção de Perfil -->
+    <div class="tab-content hidden" id="meus-outdoors">
+      <div class="bg-white rounded-lg shadow p-4">
+        <h2 class="text-lg font-semibold mb-4">Outdoors</h2>
         <!-- Coloque aqui a estrutura do conteúdo do perfil -->
       </div>
     </div>
