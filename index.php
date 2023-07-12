@@ -1,4 +1,17 @@
-<?php session_start(); ?>
+<?php  
+include_once './dbconfig/dbconfig.php';
+session_start();
+
+$pdo = $DB_con;
+
+// Consulta SQL para obter os países
+$query = "SELECT * FROM outdoor";
+$stmt = $pdo->query($query);
+
+// Obter os resultados como um array
+$outdoors = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,7 +22,10 @@
 <link
   rel="stylesheet"
   href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/tw-elements.min.css" />
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.tailwindcss.com/3.3.0"></script>
+<script src="./content/bootstrap/js/index.js"></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
@@ -136,7 +152,9 @@
 </div>
 
 <!-- Cards area -->
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-10 px-10">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-10 px-10" id="outdoors">
+
+  <?php echo implode(', ', $outdoors); ?>
   <!-- Card 1 -->
   <div class="bg-white rounded-lg shadow-sm p-4 border border-gray-200">
     <img src="caminho/para/imagem1.jpg" alt="Imagem 1" class="w-full h-40 object-cover rounded-md">

@@ -27,10 +27,13 @@ class UserController {
         return false;
     }
 
-    public function getUserByAccId($accountId) {
-        $id = $this->user_service->getUserByAccId($accountId);
+    public function getUserByAccId($accountId, $role) {
+        $id = $this->user_service->getUserByAccId($accountId, $role);
         
         if($id)
+        echo $id;
+        else 
+        echo "hell";
         return $id;
         return false;
     }

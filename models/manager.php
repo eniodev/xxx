@@ -1,43 +1,39 @@
 <?php class Manager {
-    private $manager_id;
-    private $full_name;
-    private $email;
-    private $comune_id;
+    private $id;
+    private $name;
+    private $commune_id;
     private $address;
     private $phone;
-    private $username;
-    private $password;
-    private $is_admin;
+    private $user_id;
 
-    public function getManagerId() {
-        return $this->manager_id;
+    public function __construct($name, $address, $phone, $commune_id, $user_id) {
+        $this->name = $name;
+        $this->address = $address;
+        $this->phone = $phone;
+        $this->commune_id = $commune_id;
+        $this->user_id = $user_id;
+    }
+    public function getId() {
+        return $this->id;
     }
 
-    public function setManagerId($manager_id) {
+    public function setId($manager_id) {
         $this->manager_id = $manager_id;
     }
 
-    public function getFullName() {
-        return $this->full_name;
+    public function getName() {
+        return $this->name;
     }
 
-    public function setFullName($full_name) {
-        $this->full_name = $full_name;
+    public function setName($name) {
+        $this->full_name = $name;
     }
 
-    public function getEmail() {
-        return $this->email;
+    public function getCommuneId() {
+        return $this->commune_id;
     }
 
-    public function setEmail($email) {
-        $this->email = $email;
-    }
-
-    public function getComuneId() {
-        return $this->comune_id;
-    }
-
-    public function setComuneId($comune_id) {
+    public function setCommuneId($comune_id) {
         $this->comune_id = $comune_id;
     }
 
@@ -57,28 +53,12 @@
         $this->phone = $phone;
     }
 
-    public function getUsername() {
-        return $this->username;
+    public function getUserId() {
+        return $this->user_id;
     }
 
-    public function setUsername($username) {
-        $this->username = $username;
-    }
-
-    public function getPassword() {
-        return $this->password;
-    }
-
-    public function setPassword($password) {
-        $this->password = $password;
-    }
-
-    public function getIsAdmin() {
-        return $this->is_admin;
-    }
-
-    public function setIsAdmin($is_admin) {
-        $this->is_admin = $is_admin;
+    public function setUserId($user_id) {
+        $this->user_id = $user_id;
     }
 }
 

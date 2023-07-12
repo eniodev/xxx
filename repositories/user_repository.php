@@ -42,8 +42,9 @@ class UserRepository {
     }
 }
 
-    public function getUserByAccId($accountId) {
-        $query = "SELECT * FROM client WHERE user_id = :accountId";
+    public function getUserByAccId($accountId, $role) {
+        $table = $role=="C" ? 'client' : 'manager';
+        $query = "SELECT * FROM $table WHERE user_id = :accountId";
         $stmt =  $this->connection->prepare($query);
         $stmt->bindValue(':accountId', $accountId);
         $stmt->execute();

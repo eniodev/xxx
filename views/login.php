@@ -23,10 +23,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if ($authenticated) {
        $_SESSION['user'] = $authenticated;
-        echo $_SESSION['user']['id']; 
 
-        $user = $user_controller->getUserByAccId($_SESSION['user']['id']);
-        $SESSION['entity'] = $user;
+
+        
+       $user = $user_controller->getUserByAccId($_SESSION['user']['id'], $_SESSION['user']['role']);
+
+        $_SESSION['entity'] = $user;
 
         if ($_SESSION['user']['role']=== "C") {
           header('Location: client_dashboard.php');

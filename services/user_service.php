@@ -19,8 +19,12 @@ public function authenticateUser($email, $password) {
     return $this->user_repository->authenticateUser($email, $password);
 }
 
-public function getUserByAccId($accoundId) {
-    return $this->user_repository->getUserByAccId($accoundId);
+public function getUserByAccId($accoundId, $role) {
+    return $this->user_repository->getUserByAccId($accoundId, $role);
 }
 
+
+public function getManagers() {
+    return $this->user_repository->getUserByAccId();
+}
 }
