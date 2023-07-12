@@ -1,0 +1,71 @@
+  /* Estilos da modal */
+  .hidden {
+    display: none !important;
+  }
+
+  .fixed {
+    position: fixed;
+  }
+
+  .inset-0 {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+
+  .flex {
+    display: flex;
+  }
+
+  .items-center {
+    align-items: center;
+  }
+
+  .justify-center {
+    justify-content: center;
+  }
+
+  .z-10 {
+    z-index: 10;
+  }
+
+  .bg-gray-900 {
+    background-color: #1a202c;
+  }
+
+  .bg-opacity-50 {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  .absolute {
+    position: absolute;
+  }
+
+  .bg-white {
+    background-color: #fff;
+  }
+
+  .p-4 {
+    padding: 1rem;
+  }
+
+  .rounded-lg {
+    border-radius: 0.5rem;
+  }
+
+  .z-20 {
+    z-index: 20;
+  }
+
+  .text-lg {
+    font-size: 1.125rem;
+  }
+
+  .font-semibold {
+    font-weight: 600;
+  }
+
+  .mb-4 {
+    margin-bottom: 1rem;
+  }
